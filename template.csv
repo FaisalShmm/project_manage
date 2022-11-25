@@ -1,0 +1,4 @@
+Task,Task Description,Start,Finish,Completion Pct,Teams
+Discovery,Gather information,15.12.2022 08:00.00,30.01.2023 15:30:00,20,2
+Data Collection,"Collect data, process it",11.11.2022 11:00:00,30.11.2022 18:00:00,30,4
+Data Preprocessing,Process and clean data,16.12.2022 13:00:00,30.12.2022 17:00:00,40,3
