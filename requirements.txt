@@ -51,4 +51,3 @@ urllib3==1.26.13
 validators==0.20.0
 watchdog==2.1.9
 zipp==3.10.0
-st_aggrid==0.3.3
