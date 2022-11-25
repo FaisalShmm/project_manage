@@ -10,7 +10,7 @@ import os
 st.set_page_config(page_title="Project_management",layout='wide')  # Choose wide mode as the default setting
 
 # Add a logo (optional) in the sidebar
-logo=Image.open(r'logo.jpg')
+logo=Image.open(r'logo.jpg',)
 st.image(logo,width=220)
 st.sidebar.image(logo,width=230)
 st.sidebar.markdown("[Linkedin Account](https://www.linkedin.com/in/faisal-shamim-a49332241)")
