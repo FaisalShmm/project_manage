@@ -5,12 +5,14 @@ import numpy as np
 import plotly.express as px
 from PIL import Image
 import io
+import os
 # Todo: creating sidebar
 st.set_page_config(page_title="Project_management",layout='wide')  # Choose wide mode as the default setting
 
 # Add a logo (optional) in the sidebar
-logo1= Image.open(r'/home/faisal/Python_Projects/project_manage/logo.jpeg')
-st.sidebar.image(logo1,  width=230)
+logo=Image.open(r'logo.jpg')
+st.image(logo,width=220)
+st.sidebar.image(logo,width=230)
 st.sidebar.markdown("[Linkedin Account](https://www.linkedin.com/in/faisal-shamim-a49332241)")
 # Add the expander to provide some information about the app
 with st.sidebar.expander("About the App"):
@@ -45,8 +47,8 @@ st.markdown('<p class="font">UPLOAD YOUR PROJECT PLAN AND GET GANTT CHART INSTAN
             unsafe_allow_html=True)
 # ?Add a template screenshot
 st.subheader('Step 1:Download the project plan template'.upper())
-image = Image.open(r'/home/faisal/Python_Projects/project_manage/template.png')
-st.image(image, caption='Make sure you use the same column name as in the template'.upper())
+temp = Image.open(r'template.png')
+st.image(temp, caption='Make sure you use the same column name as in the template'.upper())
 
 # ? Allow the user to download the template
 
