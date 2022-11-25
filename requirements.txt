@@ -15,6 +15,7 @@ GitPython==3.1.29
 idna==3.4
 importlib-metadata==5.1.0
 Jinja2==3.1.2
+streamlit-aggrid==0.3.3
 jsonschema==4.17.1
 MarkupSafe==2.1.1
 numpy==1.23.5
@@ -39,7 +40,6 @@ semver==2.13.0
 six==1.16.0
 smmap==5.0.0
 streamlit==1.15.1
-streamlit-aggrid==0.3.3
 tenacity==8.1.0
 toml==0.10.2
 toolz==0.12.0
