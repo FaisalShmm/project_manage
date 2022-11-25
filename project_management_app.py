@@ -1,19 +1,22 @@
-from st_aggrid import AgGrid
+from st_aggrid import *
 import streamlit as st
-import pandas as pd 
+import pandas as pd
 import numpy as np
 import plotly.express as px
 from PIL import Image
 import io
 import os
+
 # Todo: creating sidebar
-st.set_page_config(page_title="Project_management",layout='wide')  # Choose wide mode as the default setting
+# Choose wide mode as the default setting
+st.set_page_config(page_title="Project_management", layout='wide')
 
 # Add a logo (optional) in the sidebar
-logo=Image.open(r'logo.jpg',)
-st.image(logo,width=220)
-st.sidebar.image(logo,width=230)
-st.sidebar.markdown("[Linkedin Account](https://www.linkedin.com/in/faisal-shamim-a49332241)")
+logo = Image.open(r'logo.jpg',)
+st.image(logo, width=220)
+st.sidebar.image(logo, width=230)
+st.sidebar.markdown(
+    "[Linkedin Account](https://www.linkedin.com/in/faisal-shamim-a49332241)")
 # Add the expander to provide some information about the app
 with st.sidebar.expander("About the App"):
     st.write("""
@@ -91,9 +94,9 @@ if uploaded_file is not None:
     st.subheader('Step 3:Generate the Gantt Chart'.upper())
 
     Options = st.selectbox("View Gantt chart by:", [
-                           'Teams','Completion Pct'],index=0)
+                           'Teams', 'Completion Pct'], index=0)
     if st.button("Generate Gantt Chart".upper()):
-      fig = px.timeline(
+        fig = px.timeline(
             df,
             x_start="Start",
             x_end="Finish",
@@ -101,9 +104,9 @@ if uploaded_file is not None:
             color=Options,
             hover_name="Task Description"
         )
-      fig.update_yaxes(autorange="reversed")
+        fig.update_yaxes(autorange="reversed")
 
-      fig.update_layout(
+        fig.update_layout(
             title='Project Plan Gantt Chart',
             hoverlabel_bgcolor='#DAEEED',
             bargap=0.2,
@@ -112,34 +115,34 @@ if uploaded_file is not None:
             yaxis_title="",
             title_x=0.5,
             xaxis=dict(
-                tickfont_size=15,
-                tickangle=270,
-                rangeslider_visible=True,
-                side="top",
-                showgrid=True,
-                zeroline=True,
-                showline=True,
-                showticklabels=True,
-                tickformat="%x\n",
+                  tickfont_size=15,
+                  tickangle=270,
+                  rangeslider_visible=True,
+                  side="top",
+                  showgrid=True,
+                  zeroline=True,
+                  showline=True,
+                  showticklabels=True,
+                  tickformat="%x\n",
 
             )
         )
-      fig.update_xaxes(tickangle=0, tickfont=dict(
-        family='Rockwell', color='blue', size=15))
+        fig.update_xaxes(tickangle=0, tickfont=dict(
+            family='Rockwell', color='blue', size=15))
 
-      st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
 
-      st.subheader(
-        'Bonus:Export the interactive Gantt chart to HTML and share with your team'.upper())
-      buffer = io.StringIO()
-      fig.write_html(buffer, include_plotlyjs='cdn')
-      html_bytes = buffer.getvalue().encode()
-      st.download_button(
-        label='Export to HTML'.upper(),
-        data=html_bytes,
-        file_name='Gantt.html',
-        mime='text/html'
-      )
+        st.subheader(
+            'Bonus:Export the interactive Gantt chart to HTML and share with your team'.upper())
+        buffer = io.StringIO()
+        fig.write_html(buffer, include_plotlyjs='cdn')
+        html_bytes = buffer.getvalue().encode()
+        st.download_button(
+            label='Export to HTML'.upper(),
+            data=html_bytes,
+            file_name='Gantt.html',
+            mime='text/html'
+        )
     st.success("Thanks for using this app:)".upper())
 else:
     st.warning('You need to upload a csv file'.upper())
